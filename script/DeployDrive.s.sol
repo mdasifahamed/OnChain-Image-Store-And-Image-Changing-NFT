@@ -5,6 +5,7 @@ pragma solidity ^0.8.20;
 import{Script} from "forge-std/Script.sol";
 
 import{Drive} from "../src/Drive.sol";
+import {Base64} from "@openzeppelin/contracts/utils/Base64.sol";
 
 contract DeployDrive is Script{
 
@@ -16,8 +17,8 @@ contract DeployDrive is Script{
         string memory SportsImageSvg = vm.readFile("./image_svgs/Sports.svg");
 
         vm.startBroadcast(deprivate);
-        
-        Drive(svgToImgUri(classicImageSvg),svgToImgUri(SportsImageSvg));
+
+        Drive drive = new Drive(svgToImgUri(classicImageSvg),svgToImgUri(SportsImageSvg));
 
         vm.stopBroadcast();
     }
