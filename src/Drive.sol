@@ -13,6 +13,7 @@ contract Drive is ERC721{
     string private s_ClassicCarImageURI;
     string private s_SportsCarImageURI;
     uint256 private s_TokenId;
+
     enum Cars{
 
         Classic,
@@ -91,6 +92,18 @@ contract Drive is ERC721{
                 )
             )
         );
-}
+    }
+
+    function getTokenId() public view returns(uint256){
+        return s_TokenId;
+    }
+
+    function getClassicCarImageUri() public view returns(string memory){
+        return s_ClassicCarImageURI;
+    }
+
+    function getSportsCarImageUri() public view returns(string memory){
+        return s_SportsCarImageURI;
+    }
     
 }
